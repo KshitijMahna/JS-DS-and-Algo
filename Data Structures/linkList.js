@@ -43,7 +43,7 @@ class linklist{
     }
 
     insert(value, index){
-        if(index < 0 || index > this.size()){
+        if(index < 0 || index > this.size){
             return
         }
         if(index === 0){
@@ -61,7 +61,7 @@ class linklist{
     }
 
     removeFrom(index){
-        if(index < 0 || index >= this.size()){
+        if(index < 0 || index >= this.size){
             return null
         }
         let removeNode
@@ -99,6 +99,35 @@ class linklist{
             }
             return null
         }
+    }
+
+    search(value){
+        if(this.isEmpty()){
+            return -1
+        }
+        let i = 0
+        let curr = this.head
+
+        while(curr){
+            if(curr.value === value){
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return -1
+    }
+
+    reverse(){
+        let current = this.head
+        let prev = null
+        while(curr){
+            let next = curr.next
+            current.next = prev
+            prev = current
+            current = next
+        }
+        this.head = prev
     }
 
     print(){
