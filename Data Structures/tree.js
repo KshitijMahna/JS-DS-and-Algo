@@ -66,16 +66,16 @@ class binarySearchTree{
 
     inOrder(root){
         if(root){
-            this.preOrder(root.left)
+            this.inOrder(root.left)
             console.log(root.value)
-            this.preOrder(root.right)
+            this.inOrder(root.right)
         }
     }
 
     postOrder(root){
         if(root){
-            this.preOrder(root.left)
-            this.preOrder(root.right)
+            this.postOrder(root.left)
+            this.postOrder(root.right)
             console.log(root.value)
         }
     }
